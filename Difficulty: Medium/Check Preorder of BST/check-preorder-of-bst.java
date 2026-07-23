@@ -1,0 +1,17 @@
+class Solution {
+    public boolean canRepresentBST(List<Integer> arr) {
+        // code here
+        Stack<Integer> stack = new Stack<>();
+        int root=Integer.MIN_VALUE;
+        for(int val:arr){
+            if(val<root){
+                return false;
+            }
+            while(!stack.isEmpty()  && stack.peek()<val){
+                root = stack.pop();
+            }
+            stack.push(val);
+        }
+        return true;
+    }
+}
